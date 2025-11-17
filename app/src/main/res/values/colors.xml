@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#5eb8ff</color>
-    <color name="primaryVariantColor">#0288d1</color>
-    <color name="secondaryColor">#49a61e</color>
-    <color name="secondaryVariantColor">#2a8003</color>
-    <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#000000</color>
-    <color name="backgroundColor">#fafafa</color>
-    <color name="textOnBackgroundColor">#000000</color>
-    <color name="surfaceColor">#eeeeee</color>
-    <color name="surfaceTextColor">#000000</color>
-    <color name="primaryColorDisabled">#888888</color>
-    <color name="wrongColor">#D96227</color>
-    <color name="paneBackgroundColor">#20879FB6</color>
+    <!-- Основные цвета -->
+    <color name="primary">#6200EE</color>
+    <color name="primary_dark">#3700B3</color>
+    <color name="accent">#03DAC5</color>
+
+    <!-- Цвета шахматной доски -->
+    <color name="board_light">#F0D9B5</color>
+    <color name="board_dark">#B58863</color>
+    <color name="board_selected">#FFA726</color>
+    <color name="board_legal_move">#4CAF50</color>
+
+    <!-- Фон и текст -->
+    <color name="background">#FFFFFF</color>
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#757575</color>
 </resources>

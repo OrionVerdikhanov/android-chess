@@ -1,245 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:installLocation="auto"
-    android:versionCode="239"
-    android:versionName="9.9.15">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Разрешения для рекламы -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Опционально: удалить разрешение AD_ID, если не хотите собирать advertising ID -->
+    <!-- <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove" /> -->
 
     <application
-        android:name="android.app.Application"
-        android:icon="@drawable/ic_logo"
+        android:name=".ChessApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/ChessTheme"
-        android:banner="@drawable/ic_feature"
-        android:enableOnBackInvokedCallback="false">
-        <service android:name=".ics.ICSServer" android:exported="true"/>
-        <service android:name=".tools.ImportService" android:exported="true"/>
-        <service android:name=".hotspotboard.HotspotBoardService" android:exported="true"/>
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Chess"
+        android:hardwareAccelerated="true"
+        tools:targetApi="31">
+
+        <!--
+            Meta-data для Yandex Mobile Ads SDK
+            age_restricted_user = false, так как приложение не для детей младше 13 лет
+            Если ваше приложение для детей, установите true для соблюдения COPPA
+        -->
+        <meta-data
+            android:name="@string/yandex_mobileads_age_restricted_user"
+            android:value="false" />
+
+        <!--
+            Отключение автоматической инициализации SDK (инициализируем вручную в Application)
+        -->
+        <meta-data
+            android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION"
+            android:value="false" />
+
+        <!-- SplashActivity - стартовый экран -->
         <activity
-            android:name=".start"
-            android:label="@string/app_name"
-            android:theme="@style/ChessStart"
-            android:configChanges="orientation"
-            android:exported="true">
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Chess.Splash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
-            android:name=".HtmlActivity"
-            android:label="@string/app_name_help"
-            android:configChanges="orientation"
-            android:exported="true"/>
-        <activity
-            android:name=".activities.BoardPreferencesActivity"
-            android:label="@string/globalpreferences"
-            android:configChanges="orientation"
-            android:exported="true">
-        </activity>
-        <activity
-            android:name=".activities.GamePreferenceActivity"
-            android:label="@string/playpreferences"
-            android:configChanges="orientation"
-            android:exported="true"/>
-        <activity
-            android:name=".play.PlayActivity"
-            android:label="@string/app_name_play"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/x-chess-pgn" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/x-chess-pgn" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/x-chess-fen" />
-            </intent-filter>
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
+        <!-- MainActivity - главный контейнер с навигацией -->
         <activity
-            android:name=".setup.SetupActivity"
-            android:label="@string/app_name_setup"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/x-chess-fen" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".play.PlayActivity" />
-        </activity>
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- GameActivity - экран игры -->
         <activity
-            android:name=".setup.SetupRandomFischerActivity"
-            android:label="@string/app_name_setup"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".play.PlayActivity" />
-        </activity>
-        <activity
-            android:name=".GamesListActivity"
-            android:label="@string/app_name_save_games"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".play.PlayActivity" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.puzzle.PuzzleActivity"
-            android:label="@string/app_name"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.practice.PracticeActivity"
-            android:label="@string/app_name"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.ics.ICSClient"
-            android:label="@string/app_name_playonline"
-            android:screenOrientation="locked"
-            android:configChanges="orientation"
-            android:launchMode="singleInstance"
-            android:taskAffinity=""
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.ics.ICSPrefs"
-            android:label="@string/preferences"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ics.ICSClient" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.ics.CustomCommands"
-            android:label="@string/preferences"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ics.ICSPrefs" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.hotspotboard.HotspotBoardActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="locked"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.tools.AdvancedActivity"
-            android:label="@string/app_name_pgntools"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".start" />
-        </activity>
-        <activity
-            android:name="jwtc.android.chess.tools.ImportActivity"
-            android:label="@string/app_name_import"
-            android:configChanges="orientation"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/x-chess-pgn" />
-            </intent-filter>
-        </activity>
-        <provider
-            android:name=".helpers.MyPGNProvider"
-            android:authorities="jwtc.android.chess.helpers.MyPGNProvider"
-            android:exported="true" />
-        <provider
-            android:name=".puzzle.MyPuzzleProvider"
-            android:authorities="jwtc.android.chess.puzzle.MyPuzzleProvider"
-            android:exported="true" />
+            android:name=".ui.game.GameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+
     </application>
-    <supports-screens
-        android:anyDensity="true"
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:smallScreens="false" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.FULLSCREEN" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-    <uses-feature android:name="android.software.leanback" android:required="false" />
 </manifest>
