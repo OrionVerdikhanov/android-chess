@@ -1,18 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Основные цвета -->
-    <color name="primary">#6200EE</color>
-    <color name="primary_dark">#3700B3</color>
-    <color name="accent">#03DAC5</color>
+    <!-- Material Design 3 - Primary Colors -->
+    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+    <color name="md_theme_light_onPrimaryContainer">#21005E</color>
 
-    <!-- Цвета шахматной доски -->
+    <color name="md_theme_light_secondary">#625B71</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+    <color name="md_theme_light_onSecondaryContainer">#1E192B</color>
+
+    <color name="md_theme_light_tertiary">#7D5260</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+    <color name="md_theme_light_onTertiaryContainer">#31101D</color>
+
+    <color name="md_theme_light_background">#FFFBFE</color>
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+    <color name="md_theme_light_surface">#FFFBFE</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+
+    <!-- Dark Theme -->
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+    <color name="md_theme_dark_primaryContainer">#4F378B</color>
+    <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
+
+    <color name="md_theme_dark_background">#1C1B1F</color>
+    <color name="md_theme_dark_onBackground">#E6E1E5</color>
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+
+    <!-- Classic Board Theme -->
     <color name="board_light">#F0D9B5</color>
     <color name="board_dark">#B58863</color>
     <color name="board_selected">#FFA726</color>
-    <color name="board_legal_move">#4CAF50</color>
+    <color name="board_legal_move">#7CB342</color>
 
-    <!-- Фон и текст -->
-    <color name="background">#FFFFFF</color>
-    <color name="text_primary">#000000</color>
-    <color name="text_secondary">#757575</color>
+    <!-- Green Board Theme -->
+    <color name="board_light_green">#EEEED2</color>
+    <color name="board_dark_green">#769656</color>
+    <color name="board_selected_green">#FFD54F</color>
+    <color name="board_legal_move_green">#8BC34A</color>
+
+    <!-- Blue Board Theme -->
+    <color name="board_light_blue">#DEE3E6</color>
+    <color name="board_dark_blue">#8CA2AD</color>
+    <color name="board_selected_blue">#64B5F6</color>
+    <color name="board_legal_move_blue">#42A5F5</color>
+
+    <!-- Dark Board Theme -->
+    <color name="board_light_dark">#4A4A4A</color>
+    <color name="board_dark_dark">#2B2B2B</color>
+    <color name="board_selected_dark">#FF7043</color>
+    <color name="board_legal_move_dark">#66BB6A</color>
+
+    <!-- UI Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+
+    <!-- Semi-transparent overlays -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#80FFFFFF</color>
+
+    <!-- Button states -->
+    <color name="button_disabled">#BDBDBD</color>
+    <color name="ripple_color">#40000000</color>
 </resources>

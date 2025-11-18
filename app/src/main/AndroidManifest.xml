@@ -50,12 +50,18 @@
             </intent-filter>
         </activity>
 
-        <!-- MainActivity - главный контейнер с навигацией -->
+        <!-- MainActivity - главное меню -->
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.menu.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- DifficultySelectionActivity - выбор сложности -->
+        <activity
+            android:name=".ui.difficulty.DifficultySelectionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <!-- GameActivity - экран игры -->
         <activity
