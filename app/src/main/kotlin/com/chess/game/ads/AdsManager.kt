@@ -46,6 +46,9 @@ class AdsManager(private val activity: Activity) {
     private var isInterstitialLoaded = false
     private var isRewardedLoaded = false
 
+    // Контроллер частоты показов
+    private val frequencyController = AdsFrequencyController()
+
     /**
      * Загрузить и показать адаптивный баннер
      * @param container ViewGroup контейнер для баннера
@@ -168,8 +171,12 @@ class AdsManager(private val activity: Activity) {
      * Показать межстраничную рекламу (если загружена)
      */
     fun showInterstitial() {
-        if (isInterstitialLoaded) {
+        if (isInterstitialLoaded && frequencyController.canShowInterstitial()) {
             interstitialAd?.show()
+            frequencyController.markInterstitialShown()
+        } else if (!frequencyController.canShowInterstitial()) {
+            val timeLeft = frequencyController.getTimeUntilNextShow() / 1000
+            Log.w(TAG, "Межстраничная реклама заблокирована контроллером частоты (осталось ${timeLeft}с)")
         } else {
             Log.w(TAG, "Межстраничная реклама еще не загружена")
             loadInterstitial()

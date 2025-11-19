@@ -70,6 +70,18 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />
 
+        <!-- SettingsActivity - экран настроек -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- StatisticsActivity - экран статистики -->
+        <activity
+            android:name=".ui.statistics.StatisticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

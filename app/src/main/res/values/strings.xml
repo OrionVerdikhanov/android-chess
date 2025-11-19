@@ -75,13 +75,17 @@
 
     <!-- Настройки -->
     <string name="settings_title">Настройки</string>
+    <string name="settings_game_section">Игровые настройки</string>
+    <string name="settings_appearance_section">Внешний вид</string>
+    <string name="settings_data_section">Данные</string>
     <string name="settings_sound">Звук</string>
     <string name="settings_sound_desc">Звуковые эффекты ходов</string>
     <string name="settings_vibration">Вибрация</string>
     <string name="settings_vibration_desc">Вибрация при событиях</string>
     <string name="settings_show_legal_moves">Показывать возможные ходы</string>
     <string name="settings_show_legal_moves_desc">Подсветка клеток для хода</string>
-    <string name="settings_animations">Анимация ходов</string>
+    <string name="settings_highlight_moves">Подсветка легальных ходов</string>
+    <string name="settings_animations">Анимации</string>
     <string name="settings_animations_desc">Плавная анимация движения</string>
     <string name="settings_board_theme">Тема доски</string>
     <string name="settings_board_theme_desc">Выбор цветовой схемы</string>
@@ -89,6 +93,17 @@
     <string name="settings_reset_stats_desc">Удалить всю статистику игр</string>
     <string name="settings_reset_confirm">Сбросить всю статистику?</string>
     <string name="settings_reset_success">Статистика сброшена</string>
+    <string name="board_theme_title">Тема доски</string>
+    <string name="app_theme_title">Тема приложения</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Темная</string>
+    <string name="theme_system">Системная</string>
+    <string name="theme_dark_board">Темная доска</string>
+    <string name="reset_stats_title">Сброс статистики</string>
+    <string name="reset_stats_message">Вы уверены, что хотите сбросить всю статистику? Это действие необратимо.</string>
+    <string name="reset_stats_button">Сбросить статистику</string>
+    <string name="btn_reset">Сбросить</string>
+    <string name="stats_reset_success">Статистика успешно сброшена</string>
 
     <!-- Темы доски -->
     <string name="theme_classic">Классическая</string>
@@ -97,8 +112,9 @@
     <string name="theme_dark">Темная</string>
 
     <!-- Статистика -->
+    <string name="statistics_title">Статистика</string>
     <string name="stats_title">Статистика</string>
-    <string name="stats_total">Всего игр</string>
+    <string name="stats_total">Общая статистика</string>
     <string name="stats_wins">Победы</string>
     <string name="stats_losses">Поражения</string>
     <string name="stats_draws">Ничьи</string>
@@ -107,6 +123,11 @@
     <string name="stats_games_count">%d игр</string>
     <string name="stats_win_rate_value">%.1f%%</string>
     <string name="stats_no_games">Сыграйте первую партию!</string>
+    <string name="stats_played">Сыграно: %d</string>
+    <string name="stats_won">Побед: %d</string>
+    <string name="stats_lost">Поражений: %d</string>
+    <string name="stats_draw">Ничья: %d</string>
+    <string name="stats_winrate">Процент побед: %d%%</string>
 
     <!-- О игре -->
     <string name="about_title">О игре</string>

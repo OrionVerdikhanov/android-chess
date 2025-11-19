@@ -62,6 +62,11 @@
     <color name="warning">#FF9800</color>
     <color name="info">#2196F3</color>
 
+    <!-- Game Result Colors -->
+    <color name="game_won">#4CAF50</color>
+    <color name="game_lost">#F44336</color>
+    <color name="game_draw">#FF9800</color>
+
     <!-- Semi-transparent overlays -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#80FFFFFF</color>

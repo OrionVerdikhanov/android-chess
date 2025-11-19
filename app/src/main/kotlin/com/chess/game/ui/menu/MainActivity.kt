@@ -9,6 +9,8 @@ import com.chess.game.ads.AdsManager
 import com.chess.game.core.extensions.toast
 import com.chess.game.databinding.ActivityMainBinding
 import com.chess.game.ui.difficulty.DifficultySelectionActivity
+import com.chess.game.ui.settings.SettingsActivity
+import com.chess.game.ui.statistics.StatisticsActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
@@ -38,14 +40,12 @@ class MainActivity : AppCompatActivity() {
 
             // Кнопка "Настройки"
             btnSettings.setOnClickListener {
-                toast("Настройки в разработке")
-                // TODO: Открыть настройки
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
             }
 
             // Кнопка "Статистика"
             btnStatistics.setOnClickListener {
-                toast("Статистика в разработке")
-                // TODO: Открыть статистику
+                startActivity(Intent(this@MainActivity, StatisticsActivity::class.java))
             }
 
             // Кнопка "О игре"
